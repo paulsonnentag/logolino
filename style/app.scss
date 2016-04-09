@@ -52,3 +52,32 @@ html, body, .app {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+.barn {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('../images/barn.png');
+}
+
+.barn-label {
+  position: absolute;
+  top: 40px;
+  left: (200px - 100px) / 2;
+  width: 100px;
+  border: 2px solid #fff;
+  text-align: center;
+  background-color: #e20e23;
+  margin-left: -75px/2;
+  text-transform: uppercase;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

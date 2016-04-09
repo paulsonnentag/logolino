@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Animal extends Component {
+export class Barn extends Component {
 
   componentWillMount () {
     this.sound = new buzz.sound(`../sounds/${this.props.type}`, {
@@ -13,14 +13,13 @@ export class Animal extends Component {
   }
 
   render () {
-    let style = {
-      backgroundImage: `url(../images/${this.props.type}.png)`
-    };
+    let { type } = this.props;
 
     return (
-      <div className="animal"
-           style={style}
+      <div className="barn"
            onClick={() => this.playSound()}>
+
+        <h2 className="barn-label">{type}</h2>
       </div>
     );
   }
