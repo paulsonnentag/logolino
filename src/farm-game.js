@@ -4,22 +4,48 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { Animal } from './animal';
 import { Barn } from './barn';
 
+const animals = [
+  'cow', 'dog', 'donkey', 'duck', 'goat', 'goose', 'horse', 'mouse', 'pig',
+  'rabbit', 'rooster', 'sheep'
+];
+
 @DragDropContext(HTML5Backend)
 export class FarmGame extends Component {
+
+
+  constructor (props) {
+    super();
+
+    this.state = {
+      animal : getRandomAnimal()
+    };
+  }
+
   render() {
+    const {animal} = this.state;
+
     return (
-      <div className="screen">
+      <div className="screen farm-game">
+        <div className="vertical">
 
-        <div className="row">
-          <Barn type="der"/>
-          <Barn type="die"/>
-          <Barn type="das"/>
+          <div className="horizontal">
+            <Barn type="der"/>
+            <Barn type="die"/>
+            <Barn type="das"/>
+          </div>
+
+
+          <div className="horizontal">
+            <Animal type={animal}/>
+          </div>
+
         </div>
-
-
-        <Animal type="duck"/>
-        <Animal type="goat"/>
       </div>
     );
   }
+}
+
+function getRandomAnimal () {
+  const index = Math.floor(Math.random() * animals.length);
+  return animals[index];
 }

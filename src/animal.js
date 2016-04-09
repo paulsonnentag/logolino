@@ -26,6 +26,7 @@ import { DragSource } from 'react-dnd';
   },
   (connect, monitor) => ({
     connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
     isDragging: monitor.isDragging()
   })
 )
@@ -33,18 +34,18 @@ import { DragSource } from 'react-dnd';
 export class Animal extends Component {
 
   render () {
-    const { type, isDragging, connectDragSource } = this.props;
+    const { type, isDragging, connectDragSource, connectDragPreview } = this.props;
     const style = {
       backgroundImage: `url(../images/${type}.png)`,
       opacity: isDragging ? 0 : 1
     };
 
-    return connectDragSource(
+    return connectDragPreview(connectDragSource(
       <div className="animal"
            style={style}
            onClick={() => sayName(type)}>
       </div>
-    );
+    ));
   }
 }
 
@@ -60,6 +61,7 @@ function getArticle (type) {
 
     case 'dog':
     case 'donkey':
+    case 'rabbit':
     case 'rooster':
       return 'der';
 

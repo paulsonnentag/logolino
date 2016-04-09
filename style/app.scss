@@ -1,7 +1,10 @@
-/* apply a natural box layout model to all elements, but allowing components to change */
+$animal-size: 120px;
+$barn-size: 200px;
+$barn-label-width: 100px;
+
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Shadows Into Light', sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -11,13 +14,24 @@ html, body, .app {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: #6d3a29;
+  background-color: #fedfb0;
 }
 
-.app {
+.horizontal {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+
+  &.center {
+    justify-content: center;
+  }
 }
 
 .screen {
@@ -28,40 +42,71 @@ html, body, .app {
   max-height: 600px;
   background-color: #b7cf6b;
   color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .button {
   display: block;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 0 auto 10px auto;
   border-radius: 5px;
-  background-color: #ffc86e;;
+  background-color: #ff645c;
   color: #fff;
   text-align: center;
   text-decoration: none;
+  font-size: 1.5em;
+  width: 100%;
+  max-width: 250px;
 }
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .sign {
   text-align: center;
+  padding: 60px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('../images/sign.png');
+
+
+  h1 {
+    font-size: 3em;
+    color: #885533;
+    margin: 0;
+    line-height: 1em;
+  }
+
+  h2 {
+    font-size: 2em;
+    line-height: 0.8em;
+    margin: 0;
+  }
 }
 
 .animal {
-  width: 125px;
-  height: 125px;
+  width: $animal-size;
+  height: $animal-size;
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
 
 .barn {
-  position: relative;
-  width: 200px;
-  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: $barn-size;
+  height: $barn-size;
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-image: url('../images/barn.png');
-
   transition: transform 0.2s ease-out;
 
   &.over {
@@ -70,20 +115,21 @@ html, body, .app {
 }
 
 .barn-label {
-  position: absolute;
-  top: 40px;
-  left: (200px - 100px) / 2;
-  width: 100px;
+  margin: 55px 0 0 0;
+  padding: 0 25px;
   border: 2px solid #fff;
-  text-align: center;
   background-color: #e20e23;
-  margin-left: -75px/2;
+
   text-transform: uppercase;
 }
 
+.farm-game {
+    position: relative;
 
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  .start-spot {
+    position: absolute;
+    bottom: 50px;
+    margin-left: -($animal-size/2);
+    left: 50%;
+  }
 }
