@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import { Home } from './home';
 import { FarmGame } from './farm-game';
+
+import '../style/app.scss';
 
 export class App extends Component {
 

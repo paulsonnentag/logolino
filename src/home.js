@@ -6,7 +6,9 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <Link to="/bauernhof">Spielen</Link>
+        <Link to="/bauernhof">
+          Spielen
+        </Link>
 
       </div>
     );
