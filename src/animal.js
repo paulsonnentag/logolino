@@ -18,7 +18,7 @@ import { DragSource } from 'react-dnd';
           sayNameWithArticle(type);
 
         } else {
-          console.log('falsch')
+          playInvalidSound();
         }
       }
     }
@@ -80,6 +80,12 @@ function sayNameWithArticle (type) {
 
 function sayName (type) {
   new buzz.sound(`../sounds/${type}`, {
+    formats : [ 'ogg', 'mp3', 'aac' ]
+  }).play();
+}
+
+function playInvalidSound () {
+  new buzz.sound(`../sounds/invalid`, {
     formats : [ 'ogg', 'mp3', 'aac' ]
   }).play();
 }
