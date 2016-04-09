@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router';
+import { Home } from './home';
+import { FarmGame } from './farm-game';
 
-export default class App extends Component {
+export class App extends Component {
 
   constructor (props) {
     super(props);
@@ -13,10 +16,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-      <h1>Hello, world {this.state.counter}!</h1>
-      <button onClick={() => this.inc()} >inc</button>
-      </div>
+      <Router history={browserHistory}>
+        <Route path="/" component={Home}/>
+        <Route path="/bauernhof" component={FarmGame}/>
+      </Router>
     );
   }
 }
