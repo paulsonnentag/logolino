@@ -4,7 +4,7 @@ export class FarmGame extends Component {
 
   render() {
     return (
-      <div>
+      <div className="screen">
         <h1>Farm game</h1>
 
       </div>
