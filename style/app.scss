@@ -120,14 +120,3 @@ html, body, .app {
   border: 2px solid #fff;
   text-transform: uppercase;
 }
-
-.farm-game {
-    position: relative;
-
-  .start-spot {
-    position: absolute;
-    bottom: 50px;
-    margin-left: -($animal-size/2);
-    left: 50%;
-  }
-}

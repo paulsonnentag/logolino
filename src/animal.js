@@ -42,12 +42,14 @@ export class Animal extends Component {
       opacity: isDragging ? 0 : 1
     };
 
-    return connectDragPreview(connectDragSource(
-      <div className="animal"
-           style={style}
-           onClick={() => sayName(type)}>
-      </div>
-    ));
+    return connectDragSource(
+      connectDragPreview(
+        <div className="animal"
+             style={style}
+             onClick={() => sayName(type)}>
+        </div>
+      )
+    , {dropEffect: 'move'});
   }
 }
 

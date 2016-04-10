@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import TouchBackend from 'react-dnd-touch-backend';
 import { Animal } from './animal';
+import { AnimalPreview } from './animal-preview';
 import { Barn } from './barn';
+
 
 const animals = [
   'cow', 'dog', 'donkey', 'duck', 'goat', 'goose', 'horse', 'mouse', 'pig',
@@ -11,10 +12,10 @@ const animals = [
 ];
 
 @DragDropContext(
-  //HTML5Backend
   TouchBackend({
-  enableMouseEvents: true
-}))
+    enableMouseEvents: true
+  })
+)
 export class FarmGame extends Component {
 
   constructor (props) {
@@ -45,6 +46,7 @@ export class FarmGame extends Component {
                     onSolved={() => this.newAnimal()}/>
           </div>
         </div>
+        <AnimalPreview key="__preview" name="Animal"/>
       </div>
     );
   }
