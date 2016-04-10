@@ -13,6 +13,7 @@ import { DragSource } from 'react-dnd';
       const { type } = props;
       const result = monitor.getDropResult();
 
+
       if (result) {
         if (result.type == getArticle(type)) {
           sayNameWithArticle(type);

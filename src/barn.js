@@ -22,10 +22,14 @@ export class Barn extends Component {
 
   render () {
     const { type, isOver, connectDropTarget } = this.props;
-    const className = 'barn' + (isOver ?  ' over' : '');
+    const barnClass = 'barn ' + (isOver ?  ' over' : '');
+    const style = {
+      backgroundImage: `url(../images/barn-${type}.png)`
+    };
 
     return connectDropTarget(
-      <div className={className}
+      <div className={barnClass}
+           style={style}
            onClick={() => sayArticle(type)}>
         <h2 className="barn-label">{type}</h2>
       </div>

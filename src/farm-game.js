@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import TouchBackend from 'react-dnd-touch-backend';
 import { Animal } from './animal';
 import { Barn } from './barn';
 
@@ -9,9 +10,12 @@ const animals = [
   'rabbit', 'rooster', 'sheep'
 ];
 
-@DragDropContext(HTML5Backend)
+@DragDropContext(
+  //HTML5Backend
+  TouchBackend({
+  enableMouseEvents: true
+}))
 export class FarmGame extends Component {
-
 
   constructor (props) {
     super();
@@ -27,18 +31,14 @@ export class FarmGame extends Component {
     return (
       <div className="screen farm-game">
         <div className="vertical">
-
           <div className="horizontal">
             <Barn type="der"/>
             <Barn type="die"/>
             <Barn type="das"/>
           </div>
-
-
           <div className="horizontal">
             <Animal type={animal}/>
           </div>
-
         </div>
       </div>
     );
