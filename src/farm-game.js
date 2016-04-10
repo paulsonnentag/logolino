@@ -25,7 +25,11 @@ export class FarmGame extends Component {
     };
   }
 
-  render() {
+  newAnimal () {
+    this.setState({ animal : getRandomAnimal() });
+  }
+
+  render () {
     const {animal} = this.state;
 
     return (
@@ -37,7 +41,8 @@ export class FarmGame extends Component {
             <Barn type="das"/>
           </div>
           <div className="horizontal">
-            <Animal type={animal}/>
+            <Animal type={animal}
+                    onSolved={() => this.newAnimal()}/>
           </div>
         </div>
       </div>

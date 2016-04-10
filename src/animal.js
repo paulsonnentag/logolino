@@ -17,6 +17,7 @@ import { DragSource } from 'react-dnd';
       if (result) {
         if (result.type == getArticle(type)) {
           sayNameWithArticle(type);
+          props.onSolved();
 
         } else {
           playInvalidSound();
