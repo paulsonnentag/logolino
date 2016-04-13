@@ -17,8 +17,6 @@ export class Loader extends Component {
       )
     }
 
-    return (
-      <span>{children}</span>
-    );
+    return children;
   }
 }
