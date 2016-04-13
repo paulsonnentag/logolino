@@ -27,7 +27,7 @@ function getItemStyles ({currentOffset, type}) {
     pointerEvents: 'none',
     transform: transform,
     WebkitTransform: transform,
-    backgroundImage: `url(../images/${type}.png)`,
+    backgroundImage: `url(../images/animals/${type}.png)`,
     position: 'absolute',
     top: '0',
     left: '0'

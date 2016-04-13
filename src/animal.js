@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ANIMAL } from './types';
 import { DragSource } from 'react-dnd';
+import { sound } from './sound';
 
 @DragSource(
   ANIMAL,
@@ -32,13 +33,11 @@ import { DragSource } from 'react-dnd';
     isDragging: monitor.isDragging()
   })
 )
-
 export class Animal extends Component {
-
   render () {
     const { type, isDragging, connectDragSource, connectDragPreview } = this.props;
     const style = {
-      backgroundImage: `url(../images/${type}.png)`,
+      backgroundImage: `url(../images/animals/${type}.png)`,
       opacity: isDragging ? 0 : 1
     };
 
@@ -77,19 +76,13 @@ function getArticle (type) {
 }
 
 function sayNameWithArticle (type) {
-  new buzz.sound(`../sounds/${type}-full`, {
-    formats : [ 'ogg', 'mp3', 'aac' ]
-  }).play();
+  sound.play(`${type}_full`);
 }
 
 function sayName (type) {
-  new buzz.sound(`../sounds/${type}`, {
-    formats : [ 'ogg', 'mp3', 'aac' ]
-  }).play();
+  sound.play(type);
 }
 
 function playInvalidSound () {
-  new buzz.sound(`../sounds/invalid`, {
-    formats : [ 'ogg', 'mp3', 'aac' ]
-  }).play();
+  sound.play('incorrect');
 }

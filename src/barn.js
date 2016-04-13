@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 import { ANIMAL } from './types';
+import { sound } from './sound'
 
 @DropTarget(
   ANIMAL,
@@ -24,7 +25,7 @@ export class Barn extends Component {
     const { type, isOver, connectDropTarget } = this.props;
     const barnClass = 'barn ' + (isOver ?  ' over' : '');
     const style = {
-      backgroundImage: `url(../images/barn-${type}.png)`
+      backgroundImage: `url(../images/barn/${type}.png)`
     };
 
     return connectDropTarget(
@@ -38,7 +39,5 @@ export class Barn extends Component {
 }
 
 function sayArticle (type) {
-  new buzz.sound(`../sounds/${type}`, {
-    formats : [ 'ogg', 'mp3', 'aac' ]
-  }).play();
+  sound.play(type);
 }

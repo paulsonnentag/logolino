@@ -106,7 +106,6 @@ html, body, .app {
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-image: url('../images/barn.png');
   transition: transform 0.2s ease-out;
 
   &.over {
@@ -119,4 +118,17 @@ html, body, .app {
   padding: 0 25px;
   border: 2px solid #fff;
   text-transform: uppercase;
+}
+
+
+.progress-bar {
+  background: #fff;
+  height: 40px;
+  width: 100%;
+  padding: 2px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #ff645c;
 }
