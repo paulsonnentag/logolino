@@ -43,7 +43,7 @@ export class AnimalPreview extends Component {
     }
 
     return (
-      <div className="animal"
+      <div className="animal preview"
            style={getItemStyles(this.props)}></div>
     );
   }

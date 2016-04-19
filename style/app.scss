@@ -2,6 +2,20 @@ $animal-size: 120px;
 $barn-size: 200px;
 $barn-label-width: 100px;
 
+@keyframes slide-in {
+  0% {
+    transform: translate(-400%, 0);
+  }
+
+  50% {
+    transform: translate(-400%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 html {
   box-sizing: border-box;
   font-family: 'Shadows Into Light', sans-serif;
@@ -21,6 +35,10 @@ html, body, .app {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  &.center {
+    align-items: center;
+  }
 }
 
 .vertical {
@@ -37,12 +55,12 @@ html, body, .app {
 .screen {
   width: 100%;
   height: 100%;
-  padding: 20px;
   max-width: 800px;
   max-height: 600px;
   background-color: #b7cf6b;
   color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .button {
@@ -74,7 +92,6 @@ html, body, .app {
   background-size: contain;
   background-image: url('../images/sign.png');
 
-
   h1 {
     font-size: 3em;
     color: #885533;
@@ -95,29 +112,84 @@ html, body, .app {
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+
+  &.preview {
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))
+  }
+}
+
+.slide-in {
+  animation: 1s slide-in ease-out;
 }
 
 .barn {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
   width: $barn-size;
   height: $barn-size;
   background-size: contain;
-  background-position: 50% 50%;
+  background-position: 50% bottom;
   background-repeat: no-repeat;
   transition: transform 0.2s ease-out;
 
+  perspective: 10em;
+  perspective-origin: 50% 75%;
+
   &.over {
-    transform: scale(1.1, 1.1);
+
   }
 }
 
-.barn-label {
-  margin: 55px 0 0 0;
-  padding: 0 25px;
-  border: 2px solid #fff;
-  text-transform: uppercase;
+.barn-door {
+  width: 20%;
+  height: 50%;
+  max-height: 80px;
+  max-width: 70px;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-out;
+
+  &.left {
+    background-position: left bottom;
+    transform-origin: left top;
+  }
+
+  &.right {
+    background-position: right bottom;
+    transform-origin: right top;
+  }
+
+
+  :after {
+
+  }
+}
+
+.over .barn-door {
+
+  &.left {
+    transform: rotateY(-100deg);
+  }
+
+  &.right {
+    transform: rotateY(100deg);
+  }
+}
+
+.der .barn-door {
+  background-image: url('../images/barn/door_der.png');
+}
+
+.die .barn-door {
+  background-image: url('../images/barn/door_die.png');
+}
+
+.das .barn-door {
+  background-image: url('../images/barn/door_das.png');
 }
 
 
@@ -131,4 +203,32 @@ html, body, .app {
 .progress-bar-inner {
   height: 100%;
   background-color: #ff645c;
+  transition: width 0.2s linear;
+}
+
+
+.farm-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .barns {
+    background-color: #acd9ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 50%;
+  }
+
+  .barn {
+    height: 100%;
+    margin-bottom: -10px;
+  }
+
+  .animal {
+    align-self: center;
+    height: 50%;
+    max-height: $animal-size;
+  }
 }

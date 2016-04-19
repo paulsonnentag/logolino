@@ -17,17 +17,16 @@ const animals = [
   })
 )
 export class FarmGame extends Component {
-
   constructor (props) {
     super();
 
     this.state = {
-      animal : getRandomAnimal()
+      animal : getNextRandomAnimal()
     };
   }
 
   newAnimal () {
-    this.setState({ animal : getRandomAnimal() });
+    this.setState({ animal : getNextRandomAnimal(this.state.animal) });
   }
 
   render () {
@@ -35,24 +34,28 @@ export class FarmGame extends Component {
 
     return (
       <div className="screen farm-game">
-        <div className="vertical">
-          <div className="horizontal">
-            <Barn type="der"/>
-            <Barn type="die"/>
-            <Barn type="das"/>
-          </div>
-          <div className="horizontal">
-            <Animal type={animal}
-                    onSolved={() => this.newAnimal()}/>
-          </div>
+        <div className="barns">
+          <Barn type="der"/>
+          <Barn type="die"/>
+          <Barn type="das"/>
         </div>
+
+        <Animal key={animal}
+                type={animal}
+                onSolved={() => this.newAnimal()}/>
+
         <AnimalPreview key="__preview" name="Animal"/>
       </div>
     );
   }
 }
 
-function getRandomAnimal () {
+function getNextRandomAnimal (prevAnimal) {
   const index = Math.floor(Math.random() * animals.length);
+
+  if (prevAnimal === animals[index]) {
+    return animals[(index + 1) % animals.length];
+  }
+
   return animals[index];
 }

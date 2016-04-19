@@ -43,7 +43,7 @@ export class Animal extends Component {
 
     return connectDragSource(
       connectDragPreview(
-        <div className="animal"
+        <div className="animal slide-in"
              style={style}
              onClick={() => sayName(type)}>
         </div>

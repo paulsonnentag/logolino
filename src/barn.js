@@ -12,7 +12,7 @@ import { sound } from './sound'
   },
   (connect, monitor) => ({
     connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
+    isOver: monitor.isOver()
   })
 )
 export class Barn extends Component {
@@ -23,7 +23,7 @@ export class Barn extends Component {
 
   render () {
     const { type, isOver, connectDropTarget } = this.props;
-    const barnClass = 'barn ' + (isOver ?  ' over' : '');
+    const barnClass = `barn ${type} ${isOver ?  ' over' : ''}`;
     const style = {
       backgroundImage: `url(../images/barn/${type}.png)`
     };
@@ -32,9 +32,13 @@ export class Barn extends Component {
       <div className={barnClass}
            style={style}
            onClick={() => sayArticle(type)}>
-        <h2 className="barn-label">{type}</h2>
+
+        <div className="barn-door left"></div>
+        <div className="barn-door right"></div>
       </div>
     );
+
+
   }
 }
 
