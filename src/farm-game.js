@@ -4,7 +4,7 @@ import TouchBackend from 'react-dnd-touch-backend';
 import { Animal } from './animal';
 import { AnimalPreview } from './animal-preview';
 import { Barn } from './barn';
-
+import { ProgressBar } from './progress-bar';
 
 const animals = [
   'cow', 'dog', 'donkey', 'duck', 'goat', 'goose', 'horse', 'mouse', 'pig',

@@ -25,7 +25,6 @@ export function loader (images, update) {
     }
   });
 
-
   function getPercentage () {
     return Math.ceil(100*(loadedCount + loaded) / (images.length + 1));
   }
