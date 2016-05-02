@@ -28,11 +28,9 @@ export class App extends Component {
       '../images/animals/rooster.png',
       '../images/animals/sheep.png',
       '../images/barn/green-barn.png',
-      '../images/barn/green-door.png',
       '../images/barn/yellow-barn.png',
-      '../images/barn/yellow-door.png',
       '../images/barn/blue-barn.png',
-      '../images/barn/blue-door.png',
+
       '../images/sign.png'
     ], (percentage) => {
       this.setState({progress : percentage})

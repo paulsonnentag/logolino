@@ -5,16 +5,18 @@ import { Logo } from './logo';
 export class Home extends Component {
   render () {
     return (
-      <div className="screen">
-        <div className="vertical">
+      <div className="screen home">
+
           <Logo/>
-          <Link to="/bauernhof" className="button">
-            Spielen
-          </Link>
-          <Link to="/info" className="button">
-            Info
-          </Link>
-        </div>
+
+          <div className="home-menu">
+            <Link to="/bauernhof" className="button">
+              Spielen
+            </Link>
+            <Link to="/info" className="button">
+              Info
+            </Link>
+          </div>
       </div>
     );
   }
