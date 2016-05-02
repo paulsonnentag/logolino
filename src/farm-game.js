@@ -34,11 +34,13 @@ export class FarmGame extends Component {
 
     return (
       <div className="screen farm-game">
+
         <div className="barns">
           <Barn type="der"/>
           <Barn type="die"/>
           <Barn type="das"/>
         </div>
+
 
         <Animal key={animal}
                 type={animal}

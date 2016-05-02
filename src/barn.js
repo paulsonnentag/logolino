@@ -28,8 +28,6 @@ export class Barn extends Component {
     return connectDropTarget(
       <div className={barnClass}
            onClick={() => sayArticle(type)}>
-          <div className="barn-door left"></div>
-          <div className="barn-door right"></div>
       </div>
     );
 

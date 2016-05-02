@@ -107,16 +107,13 @@ html, body, .app {
 /* barn */
 
 .barn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
   width: $barn-size;
   height: $barn-size;
   background-size: contain;
-  background-position: 50% bottom;
+  background-position: center bottom;
   background-repeat: no-repeat;
+  transition: transform 0.2s ease-in;
+  position: relative;
 
   &.der {
     background-image: url('../images/barn/green-barn.png');
@@ -130,53 +127,15 @@ html, body, .app {
     background-image: url('../images/barn/blue-barn.png');
   }
 
-
-  perspective: 10em;
-  perspective-origin: 50% 75%;
-
-
-}
-
-.barn-door {
-  width: 20%;
-  height: 40%;
-
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  transition: transform 0.2s ease-out;
-
-  &.left {
-    background-position: left bottom;
-    transform-origin: left top;
-  }
-
-  &.right {
-    background-position: right bottom;
-    transform-origin: right top;
+  &.over {
+    transform: scale(1.1, 1.1);
   }
 }
 
-.over .barn-door {
-
-  &.left {
-    transform: rotateY(-100deg);
-  }
-
-  &.right {
-    transform: rotateY(100deg);
-  }
-}
-
-.der .barn-door {
-  background-image: url('../images/barn/green-door.png');
-}
-
-.die .barn-door {
-  background-image: url('../images/barn/yellow-door.png');
-}
-
-.das .barn-door {
-  background-image: url('../images/barn/blue-door.png');
+.barn-sign {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
 }
 
 
@@ -208,13 +167,24 @@ html, body, .app {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: stretch;
+    align-items: flex-end;
     height: 50%;
+    max-height: $barn-size;
+  }
+
+  .barn-signs {
+    background-color: #acd9ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
   }
 
   .barn {
     height: 100%;
     margin-bottom: -10px;
+    flex-grow: 0;
+    flex-shrink: 1;
   }
 
   .animal {
