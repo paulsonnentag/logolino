@@ -38,13 +38,12 @@ export class Animal extends Component {
   render () {
     const { type, isDragging, connectDragSource, connectDragPreview } = this.props;
     const style = {
-      backgroundImage: `url(../images/animals/${type}.png)`,
       opacity: isDragging ? 0 : 1
     };
 
     return connectDragSource(
       connectDragPreview(
-        <div className="animal slide-in-left"
+        <div className={"animal slide-in-left " + type}
              style={style}
              onClick={() => sayName(type)}>
         </div>

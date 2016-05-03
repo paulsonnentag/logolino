@@ -10,12 +10,8 @@ export class Home extends Component {
           <Logo/>
 
           <div className="home-menu">
-            <Link to="/bauernhof" className="button">
-              Spielen
-            </Link>
-            <Link to="/info" className="button">
-              Info
-            </Link>
+            <Link to="/bauernhof" className="button">Spielen</Link>
+            <Link to="/info" className="button">Info</Link>
           </div>
       </div>
     );

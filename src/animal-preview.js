@@ -27,7 +27,6 @@ function getItemStyles ({currentOffset, type}) {
     pointerEvents: 'none',
     transform: transform,
     WebkitTransform: transform,
-    backgroundImage: `url(../images/animals/${type}.png)`,
     position: 'absolute',
     top: '0',
     left: '0'
@@ -38,12 +37,14 @@ function getItemStyles ({currentOffset, type}) {
 export class AnimalPreview extends Component {
 
   render () {
-    if (!this.props.isDragging) {
+    const {isDragging, type} = this.props;
+
+    if (!isDragging) {
       return <div></div>;
     }
 
     return (
-      <div className="animal preview"
+      <div className={'animal preview ' + type}
            style={getItemStyles(this.props)}></div>
     );
   }

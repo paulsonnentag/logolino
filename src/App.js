@@ -3,9 +3,10 @@ import { Router, Route, browserHistory } from 'react-router';
 import { Loader } from './loader-view';
 import { Home } from './home';
 import { FarmGame } from './farm-game';
+import Info from './info';
 import { loader } from './loader';
 
-require('../style/app.scss');
+import '../style/app.scss';
 
 export class App extends Component {
 
@@ -45,6 +46,7 @@ export class App extends Component {
         <Router history={browserHistory}>
           <Route path="/" component={Home}/>
           <Route path="/bauernhof" component={FarmGame}/>
+          <Route path="/info" component={Info}/>
         </Router>
       </Loader>
     );

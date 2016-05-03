@@ -38,7 +38,7 @@ function getResult () {
 }
 
 function getSuccessRate(tries) {
-  var successfullTries = _(tries).slice(0, SAMPLE_SIZE).filter(result => result == 1);
+  var successfullTries = _.filter(tries.slice(0, SAMPLE_SIZE), (result) => result == 1);
   return successfullTries.length / tries.length;
 }
 
