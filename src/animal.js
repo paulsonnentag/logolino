@@ -21,6 +21,7 @@ import { sound } from './sound';
           props.onSolved();
 
         } else {
+          props.onFailed();
           playInvalidSound();
         }
       }
@@ -43,7 +44,7 @@ export class Animal extends Component {
 
     return connectDragSource(
       connectDragPreview(
-        <div className="animal slide-in"
+        <div className="animal slide-in-left"
              style={style}
              onClick={() => sayName(type)}>
         </div>

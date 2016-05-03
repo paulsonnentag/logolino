@@ -2,7 +2,7 @@ $animal-size: 120px;
 $barn-size: 200px;
 $barn-label-width: 100px;
 
-@keyframes slide-in {
+@keyframes slide-in-left {
   0% {
     transform: translate(-400%, 0);
   }
@@ -15,6 +15,31 @@ $barn-label-width: 100px;
     transform: translate(0, 0);
   }
 }
+
+@keyframes slide-in-top {
+  0% {
+    transform: translate(0, -400%);
+  }
+
+  50% {
+    transform: translate(0, -400%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 
 html {
   box-sizing: border-box;
@@ -44,6 +69,8 @@ html, body, .app {
 
 .button {
   display: block;
+  border: 0;
+  font-family: inherit;
   padding: 10px;
   margin: 0 auto 10px auto;
   border-radius: 5px;
@@ -159,14 +186,40 @@ html, body, .app {
   margin: 0;
 }
 
+.message-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(254, 223, 176, 0.3);
+  z-index: 999;
+}
+
+.message-box-content {
+  width: 90%;
+  padding: 20px;
+  max-width: 350px;
+  border-radius: 20px;
+  background-color: #ffc76e;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
 
 /* progress bar */
 
 .progress-bar {
   background: #fff;
-  height: 40px;
-  width: 100%;
-  padding: 2px;
+  height: 5%;
+  width: 90%;
 }
 
 .progress-bar-inner {
@@ -174,7 +227,6 @@ html, body, .app {
   background-color: #ff645c;
   transition: width 0.2s linear;
 }
-
 
 /* home screen  */
 
@@ -191,8 +243,6 @@ html, body, .app {
     flex-direction: row;
   }
 }
-
-
 
 /* farm game screen */
 
@@ -230,16 +280,26 @@ html, body, .app {
     align-self: center;
     height: 50%;
     max-height: $animal-size;
-    z-index: 999;
+    z-index: 99;
   }
 
   .progress-bar {
-    margin: 10px;
+    align-self: center;
+    margin-bottom: 15px;
   }
 }
 
 /* utils */
 
-.slide-in {
-  animation: 1s slide-in ease-out;
+.slide-in-left {
+  animation: 1s slide-in-left ease-out;
+}
+
+
+.slide-in-top {
+  animation: 1s slide-in-top ease-out;
+}
+
+.fade-in {
+  animation: 0.5s fade-in ease-out;
 }
