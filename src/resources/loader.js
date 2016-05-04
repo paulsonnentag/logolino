@@ -1,4 +1,4 @@
-import { sound } from './sound';
+import sound from './sound';
 
 var loaded = false;
 
@@ -6,7 +6,7 @@ sound.on('load', function () {
   loaded = true;
 });
 
-export function loader (images, update) {
+export default function loader (images, update) {
   var loadedCount = 0;
 
   if (!loaded) {
@@ -26,6 +26,6 @@ export function loader (images, update) {
   });
 
   function getPercentage () {
-    return Math.ceil(100*(loadedCount + loaded) / (images.length + 1));
+    return Math.ceil(100 * (loadedCount + loaded) / (images.length + 1));
   }
 }

@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 
-
 export default class MessageBox extends Component {
   render () {
-    const { children } = this.props;
+    const {children} = this.props;
 
     return (
       <div className="message-box fade-in">

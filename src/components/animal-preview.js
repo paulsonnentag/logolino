@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { DragLayer } from 'react-dnd';
+import React, {Component} from 'react';
+import {DragLayer} from 'react-dnd';
 
 function collect (monitor) {
   var item = monitor.getItem();
@@ -17,7 +17,6 @@ function getItemStyles ({currentOffset, type}) {
     };
   }
 
-  // http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/
   var x = currentOffset.x;
   var y = currentOffset.y;
   var transform = `translate(${x}px, ${y}px)`;
@@ -33,7 +32,7 @@ function getItemStyles ({currentOffset, type}) {
 }
 
 @DragLayer(collect)
-export class AnimalPreview extends Component {
+export default class AnimalPreview extends Component {
 
   render () {
     const {isDragging, type} = this.props;

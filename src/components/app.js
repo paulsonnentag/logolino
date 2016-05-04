@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
-import { Loader } from './loader-view';
-import { Home } from './home';
-import { FarmGame } from './farm-game';
-import Info from './info';
-import { loader } from './loader';
+import React, {Component} from 'react';
+import {Router, Route, browserHistory} from 'react-router';
+import Loader from './loader';
+import HomePage from './home-page';
+import GamePage from './game-page';
+import InfoPage from './info-page';
+import loader from '../resources/loader';
 
-import '../style/app.scss';
+import '../../style/app.scss';
 
 export class App extends Component {
 
   constructor () {
     super();
-    this.state = { progress : 0 };
+    this.state = {progress: 0};
 
     loader([
       '../images/animals/cat.svg',
@@ -33,19 +33,19 @@ export class App extends Component {
       '../images/barn/blue-barn.svg',
       '../images/sign.svg'
     ], (percentage) => {
-      this.setState({progress : percentage})
+      this.setState({progress: percentage})
     });
   }
 
-  render() {
-    const { progress } = this.state;
+  render () {
+    const {progress} = this.state;
 
     return (
       <Loader progress={progress}>
         <Router history={browserHistory}>
-          <Route path="/" component={Home}/>
-          <Route path="/bauernhof" component={FarmGame}/>
-          <Route path="/info" component={Info}/>
+          <Route path="/" component={HomePage}/>
+          <Route path="/bauernhof" component={GamePage}/>
+          <Route path="/info" component={InfoPage}/>
         </Router>
       </Loader>
     );

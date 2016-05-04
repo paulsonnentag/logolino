@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { DragSource } from 'react-dnd';
-import { sound } from './sound';
+import React, {Component} from 'react';
+import {DragSource} from 'react-dnd';
+import sound from '../resources/sound';
 
 @DragSource(
   'ANIMAL',
@@ -10,9 +10,8 @@ import { sound } from './sound';
     },
 
     endDrag (props, monitor) {
-      const { type } = props;
+      const {type} = props;
       const result = monitor.getDropResult();
-
 
       if (result) {
         if (result.type == getArticle(type)) {
@@ -25,7 +24,6 @@ import { sound } from './sound';
         }
       }
     }
-
   },
   (connect, monitor) => ({
     connectDragSource: connect.dragSource(),
@@ -33,9 +31,9 @@ import { sound } from './sound';
     isDragging: monitor.isDragging()
   })
 )
-export class Animal extends Component {
+export default class Animal extends Component {
   render () {
-    const { type, isDragging, connectDragSource, connectDragPreview } = this.props;
+    const {type, isDragging, connectDragSource, connectDragPreview} = this.props;
     const style = {
       opacity: isDragging ? 0 : 1
     };
@@ -47,7 +45,7 @@ export class Animal extends Component {
              onClick={() => sayName(type)}>
         </div>
       )
-    , {dropEffect: 'move'});
+      , {dropEffect: 'move'});
   }
 }
 

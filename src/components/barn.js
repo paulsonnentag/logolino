@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { DropTarget } from 'react-dnd';
-import { sound } from './sound'
+import React, {Component} from 'react';
+import {DropTarget} from 'react-dnd';
+import sound from '../resources/sound'
 
 @DropTarget(
   'ANIMAL',
@@ -14,22 +14,21 @@ import { sound } from './sound'
     isOver: monitor.isOver()
   })
 )
-export class Barn extends Component {
+export default class Barn extends Component {
 
   sayArticle () {
     this.articleSound.play();
   }
 
   render () {
-    const { type, isOver, connectDropTarget } = this.props;
-    const barnClass = `barn ${type} ${isOver ?  ' over' : ''}`;
+    const {type, isOver, connectDropTarget} = this.props;
+    const barnClass = `barn ${type} ${isOver ? ' over' : ''}`;
 
     return connectDropTarget(
       <div className={barnClass}
            onClick={() => sayArticle(type)}>
       </div>
     );
-
   }
 }
 

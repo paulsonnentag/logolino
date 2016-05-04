@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import {ProgressBar} from './progress-bar';
-import {getResults} from './stats';
+import ProgressBar from './progress-bar';
+import {getResults} from '../model/stats';
 
-export default class Info extends Component {
+export default class InfoPage extends Component {
   render () {
     const result = getResults();
 

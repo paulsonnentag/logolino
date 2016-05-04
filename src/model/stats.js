@@ -6,22 +6,22 @@ const SUCCESS_RATE = 0.7;
 
 const ANIMALS = [
 
-  // exercise 1
+  // level 1
   'dog',
   'cat',
   'pig',
 
-  // exercise 2
+  // level 2
   'donkey',
   'cow',
   'horse',
 
-  // exercise 3
+  // level 3
   'rabbit',
   'mouse',
   'sheep',
 
-  // bonus
+  // level 4
   'duck',
   'goat',
   'goose',

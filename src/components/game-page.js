@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {DragDropContext} from 'react-dnd';
 import TouchBackend from 'react-dnd-touch-backend';
 import {Link} from 'react-router';
-import {Animal} from './animal';
-import {AnimalPreview} from './animal-preview';
-import {Barn} from './barn';
+import Animal from './animal';
+import AnimalPreview from './animal-preview';
+import Barn from './barn';
 import MessageBox from './message-box'
-import {ProgressBar} from './progress-bar';
-import {reportSolved, reportFailed, getNextRandomAnimal} from './stats';
+import ProgressBar from './progress-bar';
+import {reportSolved, reportFailed, getNextRandomAnimal} from '../model/stats';
 
 const TARGET_POINTS = 10;
 
@@ -16,7 +16,7 @@ const TARGET_POINTS = 10;
     enableMouseEvents: true
   })
 )
-export class FarmGame extends Component {
+export default class GamePage extends Component {
   constructor (props) {
     super();
 
@@ -51,7 +51,6 @@ export class FarmGame extends Component {
       this.setState({mistake: true});
     }
   }
-
 
   resetGame () {
     this.setState(getInitialState());
@@ -97,7 +96,6 @@ export class FarmGame extends Component {
     );
   }
 }
-
 
 function getInitialState () {
   return {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { ProgressBar } from './progress-bar';
+import ProgressBar from './progress-bar';
 
-
-export class Loader extends Component {
+export default class Loader extends Component {
   render() {
     const { progress, children } = this.props;
 
