@@ -9,7 +9,7 @@ import MessageBox from './message-box'
 import {ProgressBar} from './progress-bar';
 import {reportSolved, reportFailed, getNextRandomAnimal} from './stats';
 
-const TARGET_POINTS = 5;
+const TARGET_POINTS = 10;
 
 @DragDropContext(
   TouchBackend({

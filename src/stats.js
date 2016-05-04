@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-const HISTORY_SIZE = 100;
 const SAMPLE_SIZE = 10;
-const MIN_SAMPLES = 5;
+const MIN_TRIES = 5;
+const SUCCESS_RATE = 0.7;
 
 const ANIMALS = [
 
@@ -45,7 +45,7 @@ function loadStats () {
 
 function getInitialStats () {
   return {
-    level : 0,
+    level : 1,
     animals: _.reduce(ANIMALS, (stats, animal) => {
       stats[animal] = [];
       return stats;
@@ -58,12 +58,40 @@ function saveStats () {
 }
 
 function report (success, animal) {
+  // add try
   stats.animals[animal].push(success ? 1 : 0);
+
+  updateLevel();
 
   saveStats();
 }
 
-function getResult () {
+function updateLevel () {
+  if (stats.level == 4) {
+    return;
+  }
+
+  const results = _.pick(getResults(), getUnlockedAnimals());
+
+  if (_.every(results, isSuccessful)) {
+    stats.level++;
+    console.log('yay next level: ', stats.level);
+  }
+}
+
+function isSuccessful ({successRate, count}) {
+  return successRate >= SUCCESS_RATE && count >= MIN_TRIES;
+}
+
+function getUnlockedAnimals () {
+  if (stats.level == 4) {
+    return ANIMALS;
+  }
+
+  return ANIMALS.slice(0, stats.level * 3);
+}
+
+function getResults () {
   return _.mapValues(stats.animals, tries => ({
       successRate: getSuccessRate(tries),
       count: tries.length
@@ -75,19 +103,16 @@ function getSuccessRate (tries) {
   return successfullTries.length / tries.length;
 }
 
-function getLatestStats () {
-  return _.mapValues(stats, (tries) => tries.slice(0, HISTORY_SIZE));
-}
-
-
 function getNextRandomAnimal (prevAnimal) {
-  const index = Math.floor(Math.random() * ANIMALS.length);
+  const animals = getUnlockedAnimals();
 
-  if (prevAnimal === ANIMALS[index]) {
-    return ANIMALS[(index + 1) % ANIMALS.length];
+  const index = Math.floor(Math.random() * animals.length);
+
+  if (prevAnimal === animals[index]) {
+    return animals[(index + 1) % animals.length];
   }
 
-  return ANIMALS[index];
+  return animals[index];
 }
 
 const reportSolved = _.partial(report, true);
@@ -96,6 +121,6 @@ const reportFailed = _.partial(report, false);
 export {
   reportSolved,
   reportFailed,
-  getResult,
+  getResults,
   getNextRandomAnimal
 }

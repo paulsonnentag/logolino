@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ANIMAL } from './types';
 import { DragLayer } from 'react-dnd';
 
 function collect (monitor) {

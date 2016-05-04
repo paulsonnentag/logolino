@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ANIMAL } from './types';
 import { DragSource } from 'react-dnd';
 import { sound } from './sound';
 

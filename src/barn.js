@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
-import { ANIMAL } from './types';
 import { sound } from './sound'
 
 @DropTarget(
