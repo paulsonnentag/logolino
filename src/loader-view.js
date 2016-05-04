@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ProgressBar } from './progress-bar';
-import { Logo } from './logo'
+
 
 export class Loader extends Component {
   render() {
@@ -10,7 +10,7 @@ export class Loader extends Component {
       return (
         <div className="screen">
           <div className="vertical">
-            <Logo/>
+            <div className="sign"></div>
             <ProgressBar progress={progress}/>
           </div>
         </div>

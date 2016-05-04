@@ -15,24 +15,23 @@ export class App extends Component {
     this.state = { progress : 0 };
 
     loader([
-      '../images/animals/cat.png',
-      '../images/animals/cow.png',
-      '../images/animals/dog.png',
-      '../images/animals/donkey.png',
-      '../images/animals/duck.png',
-      '../images/animals/goat.png',
-      '../images/animals/goose.png',
-      '../images/animals/horse.png',
-      '../images/animals/mouse.png',
-      '../images/animals/pig.png',
-      '../images/animals/rabbit.png',
-      '../images/animals/rooster.png',
-      '../images/animals/sheep.png',
+      '../images/animals/cat.svg',
+      '../images/animals/cow.svg',
+      '../images/animals/dog.svg',
+      '../images/animals/donkey.svg',
+      '../images/animals/duck.svg',
+      '../images/animals/goat.svg',
+      '../images/animals/goose.svg',
+      '../images/animals/horse.svg',
+      '../images/animals/mouse.svg',
+      '../images/animals/pig.svg',
+      '../images/animals/rabbit.svg',
+      '../images/animals/rooster.svg',
+      '../images/animals/sheep.svg',
       '../images/barn/green-barn.png',
       '../images/barn/yellow-barn.png',
       '../images/barn/blue-barn.png',
-
-      '../images/sign.png'
+      '../images/sign.svg'
     ], (percentage) => {
       this.setState({progress : percentage})
     });

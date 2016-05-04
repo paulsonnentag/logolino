@@ -43,7 +43,7 @@ $barn-label-width: 100px;
 
 html {
   box-sizing: border-box;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -98,40 +98,14 @@ html, body, .app {
   justify-content: space-around;
   width: 100%;
   height: 300px;
-  text-align: center;
-  padding: 60px;
+  margin: 20px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url('../images/sign.png');
+  background-image: url('../images/sign.svg');
 
-  h1, h2 {
-    line-height: 100%;
-  }
-
-  h1 {
-    color: #885533;
-    margin: 0;
-    font-size: 3em;
-  }
-
-  h2 {
-    font-size: 2em;
-    margin: 0;
-  }
-}
-
-@media screen and (max-height: 300px) {
-
-  .sign {
-
-    h1 {
-      font-size: 2em;
-    }
-
-    h2 {
-      font-size: 1.5em;
-    }
+  &.small {
+    height: 125px;
   }
 }
 
@@ -153,55 +127,55 @@ html, body, .app {
   /* types */
 
   &.cat {
-    background-image: url('../images/animals/cat.png');
+    background-image: url('../images/animals/cat.svg');
   }
 
   &.cow {
-    background-image: url('../images/animals/cow.png');
+    background-image: url('../images/animals/cow.svg');
   }
 
   &.dog {
-    background-image: url('../images/animals/dog.png');
+    background-image: url('../images/animals/dog.svg');
   }
 
   &.donkey {
-    background-image: url('../images/animals/donkey.png');
+    background-image: url('../images/animals/donkey.svg');
   }
 
   &.duck {
-    background-image: url('../images/animals/duck.png');
+    background-image: url('../images/animals/duck.svg');
   }
 
   &.goat {
-    background-image: url('../images/animals/goat.png');
+    background-image: url('../images/animals/goat.svg');
   }
 
   &.goose {
-    background-image: url('../images/animals/goose.png');
+    background-image: url('../images/animals/goose.svg');
   }
 
   &.horse {
-    background-image: url('../images/animals/horse.png');
+    background-image: url('../images/animals/horse.svg');
   }
 
   &.mouse {
-    background-image: url('../images/animals/mouse.png');
+    background-image: url('../images/animals/mouse.svg');
   }
 
   &.pig {
-    background-image: url('../images/animals/pig.png');
+    background-image: url('../images/animals/pig.svg');
   }
 
   &.rabbit {
-    background-image: url('../images/animals/rabbit.png');
+    background-image: url('../images/animals/rabbit.svg');
   }
 
   &.rooster {
-    background-image: url('../images/animals/rooster.png');
+    background-image: url('../images/animals/rooster.svg');
   }
 
   &.sheep {
-    background-image: url('../images/animals/sheep.png');
+    background-image: url('../images/animals/sheep.svg');
   }
 }
 
@@ -216,28 +190,23 @@ html, body, .app {
   background-repeat: no-repeat;
   transition: transform 0.2s ease-in;
   position: relative;
+  margin: 5px;
 
   &.der {
-    background-image: url('../images/barn/green-barn.png');
+    background-image: url('../images/barn/green-barn.svg');
   }
 
   &.die {
-    background-image: url('../images/barn/yellow-barn.png');
+    background-image: url('../images/barn/yellow-barn.svg');
   }
 
   &.das {
-    background-image: url('../images/barn/blue-barn.png');
+    background-image: url('../images/barn/blue-barn.svg');
   }
 
   &.over {
     transform: scale(1.1, 1.1);
   }
-}
-
-.barn-sign {
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0;
 }
 
 .message-box {
@@ -347,24 +316,29 @@ html, body, .app {
 
 .info.screen {
   position: relative;
-  padding: 20px;
-
+  padding: 10px;
 
   .animal-stats {
     position: absolute;
-    top: 100px;
+    top: 70px;
     left: 10px;
     right: 10px;
     bottom: 10px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
     overflow: auto;
-    padding: 5px;
+    padding: 10px;
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
   }
 
   .animal-stat {
-    margin: 10px;
+    margin: 15px;
+    flex-grow: 0;
+
+    .animal {
+      margin: 5px;
+    }
   }
 
   .progress-bar {
