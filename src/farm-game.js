@@ -7,14 +7,9 @@ import {AnimalPreview} from './animal-preview';
 import {Barn} from './barn';
 import MessageBox from './message-box'
 import {ProgressBar} from './progress-bar';
-import {reportSolved, reportFailed} from './stats';
+import {reportSolved, reportFailed, getNextRandomAnimal} from './stats';
 
 const TARGET_POINTS = 5;
-
-const animals = [
-  'cow', 'dog', 'donkey', 'duck', 'goat', 'goose', 'horse', 'mouse', 'pig',
-  'rabbit', 'rooster', 'sheep'
-];
 
 @DragDropContext(
   TouchBackend({
@@ -103,15 +98,6 @@ export class FarmGame extends Component {
   }
 }
 
-function getNextRandomAnimal (prevAnimal) {
-  const index = Math.floor(Math.random() * animals.length);
-
-  if (prevAnimal === animals[index]) {
-    return animals[(index + 1) % animals.length];
-  }
-
-  return animals[index];
-}
 
 function getInitialState () {
   return {

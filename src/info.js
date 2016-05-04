@@ -8,21 +8,30 @@ export default class Info extends Component {
   render () {
     const result = getResult();
 
+    const animalStats = _.map(result, ({successRate, count}, animalType) => {
+      var progressBar;
+      const isDisabled = count === 0;
+      const className = 'animal ' + animalType
+        + (isDisabled ? ' disabled' : '');
+
+      if (!isDisabled) {
+        progressBar = <ProgressBar progress={successRate * 100}/>;
+      }
+
+      return (
+        <div className="animal-stat" key={animalType}>
+          <div className={className}></div>
+          {progressBar}
+        </div>
+      )
+    });
+
     return (
       <div className="screen info">
         <Link to="/" className="button">Zurück</Link>
         <div className="animal-stats">
-            {
-              _.map(result, (success, animalType) => (
-
-                <div className="animal-stat" key={animalType}>
-                  <div className={"animal " + animalType}></div>
-                  <ProgressBar progress={success * 100}/>
-                </div>
-
-              ))
-            }
-          </div>
+          {animalStats}
+        </div>
       </div>
     );
   }

@@ -4,7 +4,7 @@ import { DragSource } from 'react-dnd';
 import { sound } from './sound';
 
 @DragSource(
-  ANIMAL,
+  'ANIMAL',
   {
     beginDrag (props) {
       return {type: props.type};
@@ -52,9 +52,9 @@ export class Animal extends Component {
   }
 }
 
-
-function getArticle (type) {
-  switch (type) {
+function getArticle (animal) {
+  switch (animal) {
+    case 'cat':
     case 'cow':
     case 'duck':
     case 'goat':

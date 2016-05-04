@@ -81,6 +81,16 @@ html, body, .app {
   font-size: 1.5em;
   width: 100%;
   max-width: 250px;
+
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+
+  &.yellow {
+    background-color: #ffe85f;
+  }
+
+  &.blue {
+    background-color: #5fc2ff;
+  }
 }
 
 .app {
@@ -118,6 +128,12 @@ html, body, .app {
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+
+  &.disabled {
+    opacity: 0.4;
+    filter: grayscale(100%);
+  }
 
   &.preview {
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2))
@@ -328,17 +344,18 @@ html, body, .app {
     overflow: auto;
     padding: 10px;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-around;
+
     flex-wrap: wrap;
   }
 
   .animal-stat {
     margin: 15px;
     flex-grow: 0;
+  }
 
-    .animal {
-      margin: 5px;
-    }
+  .animal {
+    margin: 5px;
   }
 
   .progress-bar {

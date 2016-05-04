@@ -4,7 +4,7 @@ import { ANIMAL } from './types';
 import { sound } from './sound'
 
 @DropTarget(
-  ANIMAL,
+  'ANIMAL',
   {
     drop (props) {
       return {type: props.type};
