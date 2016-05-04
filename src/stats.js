@@ -45,7 +45,7 @@ function loadStats () {
 
 function getInitialStats () {
   return {
-    level : 1,
+    level: 1,
     animals: _.reduce(ANIMALS, (stats, animal) => {
       stats[animal] = [];
       return stats;
@@ -93,9 +93,9 @@ function getUnlockedAnimals () {
 
 function getResults () {
   return _.mapValues(stats.animals, tries => ({
-      successRate: getSuccessRate(tries),
-      count: tries.length
-    }));
+    successRate: getSuccessRate(tries),
+    count: tries.length
+  }));
 }
 
 function getSuccessRate (tries) {
@@ -105,11 +105,38 @@ function getSuccessRate (tries) {
 
 function getNextRandomAnimal (prevAnimal) {
   const animals = getUnlockedAnimals();
+  var index;
 
-  const index = Math.floor(Math.random() * animals.length);
+  // give preference to unlearned animals
+  // except for first and last level
+  if (stats.level === 4 || stats.level === 1) {
+    index = Math.floor(Math.random() * animals.length);
 
-  if (prevAnimal === animals[index]) {
-    return animals[(index + 1) % animals.length];
+    if (prevAnimal === animals[index]) {
+      index = (index + 1) % animals.length;
+    }
+
+  } else {
+
+    // 70 percent chance to get a new animal
+    if (Math.random() < 0.7) {
+      let offset = ((stats.level - 1) * 3);
+      let levelIndex = Math.floor(Math.random() * 3);
+
+      index = (prevAnimal === animals[offset + levelIndex]) ?
+        (offset + ((levelIndex + 1) % 3))
+        :
+        (offset + levelIndex);
+
+      // 30 percent to get an old animal
+    } else {
+      let totalAnimals = animals.length - 3;
+      index = Math.floor(Math.random() * totalAnimals);
+
+      if (prevAnimal === animals[index]) {
+        index = (index + 1) % totalAnimals;
+      }
+    }
   }
 
   return animals[index];
