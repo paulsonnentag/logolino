@@ -85,11 +85,16 @@ html, body, .app {
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 
   &.yellow {
-    background-color: #ffe85f;
+    background-color: #ece25f;
   }
 
   &.blue {
-    background-color: #5fc2ff;
+    background-color: #59c8ea;
+  }
+
+  &.green {
+    background-color: #4dcd48;
+
   }
 }
 

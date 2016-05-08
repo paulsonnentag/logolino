@@ -65,7 +65,7 @@ export default class GamePage extends Component {
         <MessageBox>
           <h1>Gut gemacht!</h1>
 
-          <button className="button" onClick={() => this.resetGame()}>Nochmal</button>
+          <button className="button green" onClick={() => this.resetGame()}>Nochmal</button>
 
           <Link to="/" className="button">
             Beenden
