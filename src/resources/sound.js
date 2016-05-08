@@ -1,4 +1,7 @@
 import {Howl} from 'howler';
+import '../../sounds/sound-sprite.m4a';
+import '../../sounds/sound-sprite.mp3';
+import '../../sounds/sound-sprite.ogg';
 
 export default new Howl({
   urls: [

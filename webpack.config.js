@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/build/'
+    publicPath: '/'
   },
   module: {
     loaders: [{
@@ -21,6 +21,11 @@ module.exports = {
       loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
     },{
       test: /\.(jpe?g|png|gif|svg)$/i,
+      loaders: [
+        'file?name=[path][name].[ext]'
+      ]
+    },{
+      test: /\.(m4a|mp3|ogg)$/i,
       loaders: [
         'file?name=[path][name].[ext]'
       ]
