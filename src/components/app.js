@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, hashHistory} from 'react-router';
 import Loader from './loader';
 import HomePage from './home-page';
 import GamePage from './game-page';
@@ -42,7 +42,7 @@ export class App extends Component {
 
     return (
       <Loader progress={progress}>
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
           <Route path="/" component={HomePage}/>
           <Route path="/bauernhof" component={GamePage}/>
           <Route path="/info" component={InfoPage}/>
