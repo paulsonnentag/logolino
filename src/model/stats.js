@@ -142,6 +142,15 @@ function getNextRandomAnimal (prevAnimal) {
   return animals[index];
 }
 
+function getLevel () {
+  return stats.level
+}
+
+function setLevel (level) {
+  stats.level = level;
+  saveStats();
+}
+
 const reportSolved = _.partial(report, true);
 const reportFailed = _.partial(report, false);
 
@@ -149,5 +158,7 @@ export {
   reportSolved,
   reportFailed,
   getResults,
+  getLevel,
+  setLevel,
   getNextRandomAnimal
 }
