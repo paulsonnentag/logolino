@@ -12,7 +12,7 @@ const ANIMALS = [
   'pig',
 
   // level 2
-  'donkey',
+  'rooster',
   'cow',
   'horse',
 
@@ -25,7 +25,7 @@ const ANIMALS = [
   'duck',
   'goat',
   'goose',
-  'rooster'
+  'donkey'
 ];
 
 
