@@ -7,11 +7,9 @@ export default class Loader extends Component {
 
     if (progress < 100) {
       return (
-        <div className="screen">
-          <div className="vertical">
-            <div className="sign"></div>
-            <ProgressBar progress={progress}/>
-          </div>
+        <div className="screen loading">
+          <div className="sign"></div>
+          <ProgressBar progress={progress}/>
         </div>
       )
     }

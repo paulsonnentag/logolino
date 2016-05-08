@@ -363,6 +363,15 @@ html, body, .app {
   }
 }
 
+/* loading screen */
+
+.loading.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
 
 /* utils */
 
