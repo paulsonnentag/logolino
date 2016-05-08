@@ -1,9 +1,11 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
+  devtool: 'eval',
   entry: [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
     './src/index'
   ],
   output: {
@@ -11,14 +13,17 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/build/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
     },{
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('css!autoprefixer!sass')
+      loaders: ['style', 'css', 'autoprefixer',  'sass']
     },{
       test: /\.(jpe?g|png|gif|svg)$/i,
       loaders: [
@@ -28,10 +33,5 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [path.resolve(__dirname, "./style")]
-  },
-
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({}),
-    new ExtractTextPlugin('styles.css')
-  ]
+  }
 };
