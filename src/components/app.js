@@ -8,7 +8,7 @@ import loader from '../resources/loader';
 
 import '../../style/app.scss';
 
-export class App extends Component {
+export default class App extends Component {
 
   constructor () {
     super();

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './components/app';
+import App from './components/app';
+import scrollLock from './utils/scroll-lock';
 
 var appElement = document.getElementById('app');
 
-ReactDOM.render(<App />, appElement);
+scrollLock(appElement);
 
-// prevent default scrolling when touching app
-appElement.addEventListener('touchmove', e => e.preventDefault());
+ReactDOM.render(<App />, appElement);

@@ -57,7 +57,7 @@ export default class InfoPage extends Component {
           </div>
 
         </div>
-        <div className="animal-stats">
+        <div className="animal-stats" data-scrollable="true">
           {animalStats}
         </div>
       </div>
