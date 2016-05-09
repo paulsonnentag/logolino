@@ -24,7 +24,7 @@ const ANIMALS = [
   // level 4
   'duck',
   'goat',
-  'goose',
+  //'goose',
   'donkey'
 ];
 
@@ -67,15 +67,20 @@ function report (success, animal) {
 }
 
 function updateLevel () {
-  if (stats.level == 4) {
+  if (stats.level === 5) {
     return;
   }
 
   const results = _.pick(getResults(), getUnlockedAnimals());
 
+  console.log(_.map(results, ({count, successRate}, name) => {
+
+    return name +  ': ' + successRate + ' ' + count;
+  }).slice(-3));
+
   if (_.every(results, isSuccessful)) {
+    console.log('next level');
     stats.level++;
-    console.log('yay next level: ', stats.level);
   }
 }
 
@@ -84,7 +89,7 @@ function isSuccessful ({successRate, count}) {
 }
 
 function getUnlockedAnimals () {
-  if (stats.level == 4) {
+  if (stats.level === 5) {
     return ANIMALS;
   }
 
@@ -109,7 +114,7 @@ function getNextRandomAnimal (prevAnimal) {
 
   // give preference to unlearned animals
   // except for first and last level
-  if (stats.level === 4 || stats.level === 1) {
+  if (stats.level === 5 || stats.level === 1) {
     index = Math.floor(Math.random() * animals.length);
 
     if (prevAnimal === animals[index]) {
@@ -142,15 +147,6 @@ function getNextRandomAnimal (prevAnimal) {
   return animals[index];
 }
 
-function getLevel () {
-  return stats.level
-}
-
-function setLevel (level) {
-  stats.level = level;
-  saveStats();
-}
-
 const reportSolved = _.partial(report, true);
 const reportFailed = _.partial(report, false);
 
@@ -158,7 +154,5 @@ export {
   reportSolved,
   reportFailed,
   getResults,
-  getLevel,
-  setLevel,
   getNextRandomAnimal
 }
