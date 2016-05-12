@@ -358,6 +358,11 @@ html, body, .app {
   position: relative;
   padding: 10px;
 
+  .button-bar {
+    display: flex;
+    flex-direction: row;
+  }
+
   .animal-stats {
     position: absolute;
     top: 70px;

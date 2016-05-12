@@ -73,13 +73,7 @@ function updateLevel () {
 
   const results = _.pick(getResults(), getUnlockedAnimals());
 
-  console.log(_.map(results, ({count, successRate}, name) => {
-
-    return name +  ': ' + successRate + ' ' + count;
-  }).slice(-3));
-
   if (_.every(results, isSuccessful)) {
-    console.log('next level');
     stats.level++;
   }
 }
@@ -150,9 +144,15 @@ function getNextRandomAnimal (prevAnimal) {
 const reportSolved = _.partial(report, true);
 const reportFailed = _.partial(report, false);
 
+function resetStats () {
+  stats = getInitialStats();
+  saveStats();
+}
+
 export {
   reportSolved,
   reportFailed,
+  resetStats,
   getResults,
   getNextRandomAnimal
 }

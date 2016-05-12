@@ -2,15 +2,26 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import ProgressBar from './progress-bar';
-import {getResults} from '../model/stats';
+import {getResults, resetStats} from '../model/stats';
 
 export default class InfoPage extends Component {
   constructor () {
     super();
+
+    this.state = {
+      result: getResults()
+    };
+  }
+
+  deleteStats () {
+    if (confirm('Spielstand löschen ?')) {
+      resetStats();
+      this.setState({result: getResults()});
+    }
   }
 
   render () {
-    const result = getResults();
+    const {result} = this.state;
 
     const animalStats = _.map(result, ({successRate, count}, animalType) => {
       var progressBar;
@@ -32,7 +43,10 @@ export default class InfoPage extends Component {
 
     return (
       <div className="screen info">
-        <Link to="/" className="button">Zurück</Link>
+        <div className="button-bar">
+          <Link to="/" className="button green">Zurück</Link>
+          <button className="button" onClick={() => this.deleteStats()}>Löschen</button>
+        </div>
         <div className="animal-stats" data-scrollable="true">
           {animalStats}
         </div>
