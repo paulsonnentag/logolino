@@ -23,7 +23,6 @@
     "webpack"
   ],
   "author": "Paul Sonnentag <Paul.Sonnentag@googlemail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/paulsonnentag/logolino/issues"
   },
