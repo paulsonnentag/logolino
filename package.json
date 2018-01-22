@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack",
-    "publish": "npm run build && cd build && git init && git add -A && git commit --amend -m 'Release' && git push --force && cd .."
+    "build": "webpack && cp index.html build/index.html"
   },
   "repository": {
     "type": "git",
