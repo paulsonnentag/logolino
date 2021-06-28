@@ -1,0 +1,328 @@
+@keyframes slide-in-left {
+  0% {
+    transform: translate(-400%, 0);
+  }
+  50% {
+    transform: translate(-400%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    transform: translate(0, -400%);
+  }
+  50% {
+    transform: translate(0, -400%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html {
+  box-sizing: border-box;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html, body, .app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #fedfb0;
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  background-color: #b7cf6b;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.button {
+  display: block;
+  border: 0;
+  font-family: inherit;
+  padding: 10px;
+  margin: 0 auto 10px auto;
+  border-radius: 5px;
+  background-color: #ff645c;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5em;
+  width: 100%;
+  max-width: 250px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.button.yellow {
+  background-color: #ece25f;
+}
+.button.blue {
+  background-color: #59c8ea;
+}
+.button.green {
+  background-color: #4dcd48;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.field-set {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 250px;
+}
+.field-set label {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+.field-set input, .field-set select {
+  border: 2px solid #000;
+  font-size: 1.5em;
+}
+/* sign */
+.sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 300px;
+  margin: 20px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('images/sign.svg');
+}
+.sign.small {
+  height: 125px;
+}
+/* animal */
+.animal {
+  width: 120px;
+  height: 120px;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+  /* types */
+}
+.animal.disabled {
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+.animal.preview {
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+}
+.animal.cat {
+  background-image: url('images/animals/cat.svg');
+}
+.animal.cow {
+  background-image: url('images/animals/cow.svg');
+}
+.animal.dog {
+  background-image: url('images/animals/dog.svg');
+}
+.animal.donkey {
+  background-image: url('images/animals/donkey.svg');
+}
+.animal.duck {
+  background-image: url('images/animals/duck.svg');
+}
+.animal.goat {
+  background-image: url('images/animals/goat.svg');
+}
+.animal.goose {
+  background-image: url('images/animals/goose.svg');
+}
+.animal.horse {
+  background-image: url('images/animals/horse.svg');
+}
+.animal.mouse {
+  background-image: url('images/animals/mouse.svg');
+}
+.animal.pig {
+  background-image: url('images/animals/pig.svg');
+}
+.animal.rabbit {
+  background-image: url('images/animals/rabbit.svg');
+}
+.animal.rooster {
+  background-image: url('images/animals/rooster.svg');
+}
+.animal.sheep {
+  background-image: url('images/animals/sheep.svg');
+}
+/* barn */
+.barn {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-in;
+  position: relative;
+  margin: 5px;
+}
+.barn.der {
+  background-image: url('images/barn/der-barn.svg');
+}
+.barn.die {
+  background-image: url('images/barn/die-barn.svg');
+}
+.barn.das {
+  background-image: url('images/barn/das-barn.svg');
+}
+.barn.over {
+  transform: scale(1.1, 1.1);
+}
+.message-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(254, 223, 176, 0.3);
+  z-index: 999;
+}
+.message-box-content {
+  width: 90%;
+  padding: 20px;
+  max-width: 350px;
+  border-radius: 20px;
+  background-color: #ffc76e;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.message-box-content h1 {
+  text-align: center;
+  margin-top: 0;
+}
+/* progress bar */
+.progress-bar {
+  background: #fff;
+  height: 5%;
+  width: 90%;
+}
+.progress-bar-inner {
+  height: 100%;
+  background-color: #ff645c;
+  transition: width 0.2s linear;
+}
+/* home screen */
+.home.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.home.screen .home-menu {
+  width: 100%;
+  flex-direction: row;
+}
+/* farm game screen */
+.farm-game.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.farm-game.screen .barns {
+  background-color: #acd9ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 50%;
+  max-height: 200px;
+}
+.farm-game.screen .barn-signs {
+  background-color: #acd9ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.farm-game.screen .barn {
+  height: 100%;
+  margin-bottom: -10px;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+.farm-game.screen .animal {
+  align-self: center;
+  height: 50%;
+  max-height: 120px;
+  z-index: 99;
+}
+.farm-game.screen .progress-bar {
+  align-self: center;
+  margin-bottom: 15px;
+}
+/* info screen */
+.info.screen {
+  position: relative;
+  padding: 10px;
+}
+.info.screen .button-bar {
+  display: flex;
+  flex-direction: row;
+}
+.info.screen .animal-stats {
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.info.screen .animal-stat {
+  margin: 15px;
+  flex-grow: 0;
+}
+.info.screen .animal {
+  margin: 5px;
+}
+.info.screen .progress-bar {
+  height: 10px;
+}
+/* loading screen */
+.loading.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+/* utils */
+.slide-in-left {
+  animation: 1s slide-in-left ease-out;
+}
+.slide-in-top {
+  animation: 1s slide-in-top ease-out;
+}
+.fade-in {
+  animation: 0.5s fade-in ease-out;
+}
